@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AC Service Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="booking-card">
+      <div class="brand">
+        <div class="brand-icon">❄</div>
+        <div>
+          <p class="eyebrow">COOL CARE • RAJKOT</p>
+          <h1>Book AC Service</h1>
+          <p class="subtitle">Schedule a convenient visit from our technician.</p>
+        </div>
+      </div>
+
+      <form id="bookingForm">
+        <div class="field">
+          <label for="acType">AC Type <span>*</span></label>
+          <select id="acType" name="acType" required>
+            <option value="">Select AC type</option>
+            <option>Split AC</option>
+            <option>Window AC</option>
+            <option>Cassette AC</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="serviceType">Service Type <span>*</span></label>
+          <select id="serviceType" name="serviceType" required>
+            <option value="">Select service</option>
+            <option>AC Foam Wash</option>
+            <option>Deep Cleaning</option>
+          </select>
+        </div>
+
+        <div class="two-col">
+          <div class="field">
+            <label for="customerName">Customer Name <span>*</span></label>
+            <input id="customerName" name="customerName" type="text" placeholder="Enter full name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number <span>*</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="numeric" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="10-digit mobile" autocomplete="tel" required />
+            <small>Enter a valid 10-digit Indian mobile number.</small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Service Location <span>*</span></label>
+          <button type="button" class="location-button" id="locationBtn">
+            <span class="pin">⌖</span>
+            <span><strong id="locationButtonText">Use my live location</strong><small>Allow location access when your browser asks</small></span>
+          </button>
+          <p id="locationStatus" class="status" aria-live="polite">Your location is only added after you tap the button.</p>
+        </div>
+
+        <div class="field">
+          <label for="address">Address <span>*</span></label>
+          <textarea id="address" name="address" rows="3" placeholder="Your detected address will appear here, or type it manually" required></textarea>
+          <div class="map-actions">
+            <a id="mapLink" href="#" target="_blank" rel="noopener" class="map-link disabled" aria-disabled="true">View location on Google Maps ↗</a>
+            <span class="map-note">Address lookup needs internet access.</span>
+          </div>
+        </div>
+
+        <input type="hidden" id="latitude" name="latitude" />
+        <input type="hidden" id="longitude" name="longitude" />
+
+        <div class="two-col">
+          <div class="field">
+            <label for="date">Preferred Date <span>*</span></label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="field">
+            <label for="time">Preferred Time <span>*</span></label>
+            <select id="time" name="time" required>
+              <option value="">Select time slot</option>
+              <option>09:00 AM – 11:00 AM</option>
+              <option>11:00 AM – 01:00 PM</option>
+              <option>01:00 PM – 03:00 PM</option>
+              <option>03:00 PM – 05:00 PM</option>
+              <option>05:00 PM – 07:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button">Create Booking Request <span>→</span></button>
+        <p class="privacy-note">Demo form: booking details are prepared on this device and are not sent to a server.</p>
+      </form>
+
+      <section id="result" class="result" hidden aria-live="polite">
+        <div class="success-mark">✓</div>
+        <h2>Booking details ready</h2>
+        <p>Review or copy the booking request below. Connect this form to your WhatsApp, email, or database to receive bookings.</p>
+        <pre id="bookingSummary"></pre>
+        <button type="button" class="copy-button" id="copyBtn">Copy booking details</button>
+      </section>
+    </section>
+    <footer>Cool Care • AC Service Booking</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
